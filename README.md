@@ -11,7 +11,7 @@
 5、上拉加载下拉刷新且侧滑可弹出菜单按钮的ListView控件：SwipeRefreshMuneListView<br>
 ![swipe_menu_listview](https://github.com/AFinalStone/SwiperefreshView-master/blob/master/screenshot/swipe_menu_listview.gif)
 
-##用法
+##导入项目
 
 * Android Studio<br>
 	```
@@ -26,3 +26,92 @@
 
     注：需要同时导入最新的android-support-v4.jar:<br>
     https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/android-support-v4.jar?raw=true
+
+##使用方法:
+
+1、SwipeRefreshListView的使用方法：<br>
+
+1.首先是布局文件中：<br>
+
+```java
+
+<com.afinalstone.androidstudy.swiperefreshview.SwipeRefreshListView
+     android:id="@+id/listview"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" />
+
+```
+1.然后是Activity代码内容：<br>
+
+```java
+
+public class ListViewActivity extends AppCompatActivity implements OnSwipeRefreshViewListener {
+
+    private SwipeRefreshListView listView;
+    private int[] imagesUrl = {R.mipmap.item01,R.mipmap.item02,R.mipmap.item03
+            ,R.mipmap.item02,R.mipmap.item01,R.mipmap.item03,R.mipmap.item02,R.mipmap.item03};
+    private MyAdapter adapter = new MyAdapter();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_listview);
+        listView = (SwipeRefreshListView) findViewById(R.id.listview);
+        listView.getListView().setAdapter(adapter);
+        listView.setOnRefreshListener(this);//这句是关键
+        listView.openRefreshState();
+    }
+
+    @Override
+    public void onTopRefrushListener() {
+        Toast.makeText(ListViewActivity.this,"顶部刷新被执行",Toast.LENGTH_SHORT).show();
+        listView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                listView.closeRefreshState();
+            }
+        },5000);
+    }
+
+    @Override
+    public void onBottomRefrushListener() {
+        Toast.makeText(ListViewActivity.this,"底部刷新被执行",Toast.LENGTH_SHORT).show();
+        listView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                listView.closeRefreshState();
+            }
+        },5000);
+    }
+
+    private class MyAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return imagesUrl.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return imagesUrl[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView = new ImageView(ListViewActivity.this);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            imageView.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,150));
+            imageView.setImageResource(imagesUrl[position]);
+            return imageView;
+        }
+    }
+}
+```
+
+代码很简单，控件使用也很简单，我就不多说了，有兴趣的童鞋可以下载下来研究一下。
