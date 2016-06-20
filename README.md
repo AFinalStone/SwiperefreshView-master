@@ -21,4 +21,4 @@ Eclipse<br>
 下载最新jar包:swiprefreshview-1.0.1.jar:
 !(https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/swiprefreshview-1.0.1.jar?raw=true)
 
-注：需要同时导入最新的android-support-v4.jar，下载见：![swiprefreshview](https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/android-support-v4.jar)
+注：需要同时导入最新的android-support-v4.jar，下载见：!(https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/android-support-v4.jar)
