@@ -15,8 +15,10 @@
 
 * Android Studio<br>
 	```
-compile 'com.afinalstone:SwiperefreshView:1.0.4'<br>
-	```
+
+compile 'com.afinalstone:SwiperefreshView:1.0.4'
+
+	```<br>
 * Eclipse<br>
 
 下载最新jar包:swiprefreshview-1.0.1.jar:<br>
