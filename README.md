@@ -29,7 +29,7 @@
 
 ##使用方法:
 
-1、SwipeRefreshListView的使用方法：<br>
+简要说举例说一下SwipeRefreshListView的使用方法：<br>
 
 1.首先是布局文件中：<br>
 
@@ -41,7 +41,7 @@
      android:layout_height="wrap_content" />
 
 ```
-1.然后是Activity代码内容：<br>
+2.然后是Activity代码内容：<br>
 
 ```java
 
