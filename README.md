@@ -10,14 +10,13 @@
 5、上拉加载下拉刷新且侧滑可弹出菜单按钮的ListView控件：SwipeRefreshMuneListView<br>
 ![swipe_menu_listview](https://github.com/AFinalStone/SwiperefreshView-master/blob/master/screenshot/swipe_menu_listview.gif)
 
-用法<br>
+##用法<br>
 
-*Android Studio<br>
+* Android Studio
 	```
 compile 'com.afinalstone:SwiperefreshView:1.0.4'
 	```
-	<br>
-*Eclipse<br>
+* Eclipse
 
 下载最新jar包:swiprefreshview-1.0.1.jar:<br>
 https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/swiprefreshview-1.0.1.jar?raw=true
