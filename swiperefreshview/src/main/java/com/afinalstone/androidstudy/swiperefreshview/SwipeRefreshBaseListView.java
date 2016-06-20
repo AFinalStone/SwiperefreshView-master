@@ -57,7 +57,8 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 
 	/**
 	 * 设置当前刷新状态监听者  支持上拉加载更多数据下拉刷新
-	 * 
+	 *
+	 * @param listener
 	 */
 	public void setOnRefreshListener(OnSwipeRefreshViewListener listener) {
 		this.onRefrushScrollViewListener = listener;

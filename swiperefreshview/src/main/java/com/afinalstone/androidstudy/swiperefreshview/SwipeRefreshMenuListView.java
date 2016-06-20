@@ -1,7 +1,7 @@
 package com.afinalstone.androidstudy.swiperefreshview;
 
 
-import com.afinalstone.androidstudy.swipemenulistview.SwipeMenuListView;
+import com.afinalstone.androidstudy.menulistview.MenuListView;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -11,7 +11,7 @@ import android.util.AttributeSet;
  * @author SHI
  * 2016年5月13日 10:26:23
  */
-public  class SwipeRefreshMenuListView extends SwipeRefreshBaseListView<SwipeMenuListView>{
+public  class SwipeRefreshMenuListView extends SwipeRefreshBaseListView<MenuListView>{
 
 	public SwipeRefreshMenuListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -22,13 +22,13 @@ public  class SwipeRefreshMenuListView extends SwipeRefreshBaseListView<SwipeMen
 	}
 
 	@Override
-	public SwipeMenuListView initListView(Context context, AttributeSet attrs) {
-		return new SwipeMenuListView(context,attrs);
+	public MenuListView initListView(Context context, AttributeSet attrs) {
+		return new MenuListView(context,attrs);
 	}
 
 	@Override
-	public SwipeMenuListView initListView(Context context) {
-		return new SwipeMenuListView(context);
+	public MenuListView initListView(Context context) {
+		return new MenuListView(context);
 	}
 
 }
