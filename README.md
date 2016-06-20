@@ -16,13 +16,13 @@
 * Android Studio<br>
 	```
 
-compile 'com.afinalstone:SwiperefreshView:1.0.4'
+    compile 'com.afinalstone:SwiperefreshView:1.0.4'
 
-	```<br>
+	```
 * Eclipse<br>
 
-下载最新jar包:swiprefreshview-1.0.1.jar:<br>
-https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/swiprefreshview-1.0.1.jar?raw=true
+    下载最新jar包:swiprefreshview-1.0.1.jar:<br>
+    https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/swiprefreshview-1.0.1.jar?raw=true
 
-注：需要同时导入最新的android-support-v4.jar:<br>
-https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/android-support-v4.jar?raw=true
+    注：需要同时导入最新的android-support-v4.jar:<br>
+    https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/android-support-v4.jar?raw=true
