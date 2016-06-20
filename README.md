@@ -1,3 +1,4 @@
+##效果展示
 一些简单实用的自定义刷新控件:<br>
 1、上拉加载下拉刷新ListView控件：SwipeRefreshListView<br>
 ![listview](https://github.com/AFinalStone/SwiperefreshView-master/blob/master/screenshot/listview.gif)<br>
@@ -10,13 +11,13 @@
 5、上拉加载下拉刷新且侧滑可弹出菜单按钮的ListView控件：SwipeRefreshMuneListView<br>
 ![swipe_menu_listview](https://github.com/AFinalStone/SwiperefreshView-master/blob/master/screenshot/swipe_menu_listview.gif)
 
-##用法<br>
+##用法
 
-* Android Studio
+* Android Studio<br>
 	```
-compile 'com.afinalstone:SwiperefreshView:1.0.4'
+compile 'com.afinalstone:SwiperefreshView:1.0.4'<br>
 	```
-* Eclipse
+* Eclipse<br>
 
 下载最新jar包:swiprefreshview-1.0.1.jar:<br>
 https://github.com/AFinalStone/SwiperefreshView-master/blob/master/jar/swiprefreshview-1.0.1.jar?raw=true
