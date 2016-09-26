@@ -115,4 +115,3 @@ public class ListViewActivity extends AppCompatActivity implements OnSwipeRefres
 ```
 
 代码很简单，控件使用也很简单，我就不多说了，有兴趣的童鞋可以下载下来研究一下。<br>
-最后附上我的博客说明地址：http://blog.csdn.net/abc6368765/article/details/51722719

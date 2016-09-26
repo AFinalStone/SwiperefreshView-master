@@ -18,7 +18,7 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 		SwipeRefreshLayout implements OnRefreshListener {
 
 	private T listView;
-	private OnSwipeRefreshViewListener onRefrushScrollViewListener;
+	private OnSwipeRefreshViewListener onRefreshScrollViewListener;
 	/** 当前刷新事件是否是底部触发的 **/
 	private boolean currentPositionTypeIsBottom;
 
@@ -61,7 +61,7 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 	 * @param listener
 	 */
 	public void setOnRefreshListener(OnSwipeRefreshViewListener listener) {
-		this.onRefrushScrollViewListener = listener;
+		this.onRefreshScrollViewListener = listener;
 		listView.setOnScrollListener(new ListViewScrollListener());
 		setOnRefreshListener(this);
 	}
@@ -90,13 +90,13 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 	@Override
 	public void onRefresh() {
 		if (currentPositionTypeIsBottom) {
-			if (onRefrushScrollViewListener != null) {
-				onRefrushScrollViewListener.onBottomRefrushListener();
+			if (onRefreshScrollViewListener != null) {
+				onRefreshScrollViewListener.onBottomRefrushListener();
 			}
 			currentPositionTypeIsBottom = false;
 		} else {
-			if (onRefrushScrollViewListener != null) {
-				onRefrushScrollViewListener.onTopRefrushListener();
+			if (onRefreshScrollViewListener != null) {
+				onRefreshScrollViewListener.onTopRefrushListener();
 			}
 		}
 	}

@@ -22,7 +22,7 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 	private SwipeRefreshLayout swipeRefreshLayout;
 	private ScrollView scrollView;
 	private T itemView;
-	private OnSwipeRefreshViewListener onRefrushScrollViewListener;
+	private OnSwipeRefreshViewListener onRefreshScrollViewListener;
 	/**当前刷新事件是否是底部触发的 **/
 	private boolean currentPositionTypeIsBottom;
 
@@ -46,22 +46,7 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 	public abstract T initItemViewToScrollView(Context context,AttributeSet attrs);
 	
 	private void initView(Context context,AttributeSet attrs){
-//		View view = View.inflate(context, R.layout.item_swipe_refresh_baseview, null);
-//		swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-//		swipeRefreshLayout.setColorSchemeColors( Color.RED
-//				,Color.GREEN
-//				,Color.BLUE
-//				,Color.YELLOW
-//				,Color.CYAN
-//				,0xFFFE5D14
-//				,Color.MAGENTA);
-//		scrollView = (ScrollView) view.findViewById(R.id.scrollView);
-//		//初始化ItemView并添加到scrollView中
-//		itemView = initItemViewToScrollView(context, attrs);
-//		scrollView.addView(itemView);
-//		currentPositionTypeIsBottom = false;
-//		addView(view);
-		swipeRefreshLayout = new SwipeRefreshLayout(context);
+ 		swipeRefreshLayout = new SwipeRefreshLayout(context);
 		swipeRefreshLayout.setColorSchemeColors( Color.RED
 				,Color.GREEN
 				,Color.BLUE
@@ -70,6 +55,7 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 				,0xFFFE5D14
 				,Color.MAGENTA);
 		scrollView = new ScrollView(context);
+		scrollView.setVerticalScrollBarEnabled(false);
 		scrollView.setFillViewport(true);
 		//初始化ItemView并添加到scrollView中
 		itemView = initItemViewToScrollView(context, attrs);
@@ -91,7 +77,7 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 	 * 设置当前刷新状态监听者
 	 */
 	public void setOnRefreshListener(OnSwipeRefreshViewListener listener){
-		this.onRefrushScrollViewListener = listener;
+		this.onRefreshScrollViewListener = listener;
 		swipeRefreshLayout.setOnRefreshListener(this);
 		scrollView.setOnTouchListener(new TouchListenerImpl());
 	}
@@ -121,13 +107,13 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 	public void onRefresh() {
 		Log.i("DownRefrushBaseView", "onRefresh被执行");
 		if(currentPositionTypeIsBottom){
-			if(onRefrushScrollViewListener != null){
-				onRefrushScrollViewListener.onBottomRefrushListener();
+			if(onRefreshScrollViewListener != null){
+				onRefreshScrollViewListener.onBottomRefrushListener();
 			}
 			currentPositionTypeIsBottom = false;
 		}else{
-			if(onRefrushScrollViewListener != null){
-				onRefrushScrollViewListener.onTopRefrushListener();
+			if(onRefreshScrollViewListener != null){
+				onRefreshScrollViewListener.onTopRefrushListener();
 			}
 		}
 	}

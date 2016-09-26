@@ -22,7 +22,7 @@ public class ListViewActivity extends AppCompatActivity implements OnSwipeRefres
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview);
-        listView = (SwipeRefreshListView) findViewById(R.id.listview);
+        listView = (SwipeRefreshListView) findViewById(R.id.listView);
         listView.getListView().setAdapter(adapter);
         listView.setOnRefreshListener(this);
         listView.openRefreshState();
