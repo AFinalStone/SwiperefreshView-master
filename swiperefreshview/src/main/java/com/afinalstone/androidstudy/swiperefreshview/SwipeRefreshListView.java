@@ -24,12 +24,12 @@ public class SwipeRefreshListView extends SwipeRefreshBaseListView<ListView>{
 	}
 
 	@Override
-	public ListView initListView(Context context, AttributeSet attrs) {
+	public ListView initItemView(Context context, AttributeSet attrs) {
 		return new ListView(context,attrs);
 	}
 
 	@Override
-	public ListView initListView(Context context) {
+	public ListView initItemView(Context context) {
 		return new ListView(context);
 	}
 

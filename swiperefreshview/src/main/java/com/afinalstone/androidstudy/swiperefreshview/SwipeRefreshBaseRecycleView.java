@@ -11,9 +11,9 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 
 /**
- * 上拉和下拉产生刷新动画的父类listView
+ * 上拉和下拉产生刷新动画的父类RecycleView
  * @author SHI
- * 2016年5月13日 10:28:11
+ * 2016-12-21 10:23:13
  */
 public abstract class SwipeRefreshBaseRecycleView<T extends RecyclerView> extends
 		SwipeRefreshLayout implements OnRefreshListener {

@@ -50,7 +50,7 @@ public class SwipeRefreshScrollView extends SwipeRefreshLayout implements OnRefr
 			//TODO
 			View view = getChildAt(1);
 			if(view != null){
-				Log.i("测试", "被执行");
+//				Log.i("测试", "被执行");
 				removeView(view);
 				scrollView.addView(view);
 				addView(scrollView);
@@ -85,7 +85,7 @@ public class SwipeRefreshScrollView extends SwipeRefreshLayout implements OnRefr
 	
 	@Override
 	public void onRefresh() {
-		Log.i("DownRefrushBaseView", "onRefresh被执行");
+//		Log.i("DownRefrushBaseView", "onRefresh被执行");
 		if(currentPositionTypeIsBottom){
 			if(onRefrushScrollViewListener != null){
 				onRefrushScrollViewListener.onBottomRefrushListener();
@@ -128,9 +128,9 @@ public class SwipeRefreshScrollView extends SwipeRefreshLayout implements OnRefr
                  int scrollViewMeasuredHeight=scrollView.getChildAt(0).getMeasuredHeight();
                  //当前控件滑动到了底部
                  if((scrollY+height)==scrollViewMeasuredHeight){
-                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollY="+scrollY);
-                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 height="+height);
-                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollViewMeasuredHeight="+scrollViewMeasuredHeight);
+//                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollY="+scrollY);
+//                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 height="+height);
+//                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollViewMeasuredHeight="+scrollViewMeasuredHeight);
                 	 currentPositionTypeIsBottom = true;
                 	 openRefreshState();
                  }

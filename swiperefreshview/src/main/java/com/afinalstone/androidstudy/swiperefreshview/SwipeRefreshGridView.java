@@ -29,7 +29,7 @@ public class SwipeRefreshGridView extends SwipeRefreshBaseGridView<ScrollGridVie
 	}
 
 	@Override
-	public ScrollGridView initItemViewToScrollView(Context context, AttributeSet attrs) {
+	public ScrollGridView initItemView(Context context, AttributeSet attrs) {
 		return new ScrollGridView(context, attrs);
 	}
 	

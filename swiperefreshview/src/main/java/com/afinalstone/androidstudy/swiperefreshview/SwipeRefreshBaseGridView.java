@@ -43,7 +43,7 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 	}
 
 	/**把需要上拉，和下拉刷新的控件初始化并添加到ScrollView中**/
-	public abstract T initItemViewToScrollView(Context context,AttributeSet attrs);
+	public abstract T initItemView(Context context,AttributeSet attrs);
 	
 	private void initView(Context context,AttributeSet attrs){
  		swipeRefreshLayout = new SwipeRefreshLayout(context);
@@ -58,7 +58,7 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 		scrollView.setVerticalScrollBarEnabled(false);
 		scrollView.setFillViewport(true);
 		//初始化ItemView并添加到scrollView中
-		itemView = initItemViewToScrollView(context, attrs);
+		itemView = initItemView(context, attrs);
 		ViewGroup.LayoutParams groupParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 		swipeRefreshLayout.addView(scrollView,groupParams);
 		scrollView.addView(itemView);
@@ -105,7 +105,7 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 	
 	@Override
 	public void onRefresh() {
-		Log.i("DownRefrushBaseView", "onRefresh被执行");
+//		Log.i("DownRefrushBaseView", "onRefresh被执行");
 		if(currentPositionTypeIsBottom){
 			if(onRefreshScrollViewListener != null){
 				onRefreshScrollViewListener.onBottomRefrushListener();
@@ -148,9 +148,9 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
                  int scrollViewMeasuredHeight=scrollView.getChildAt(0).getMeasuredHeight();
                  //当前控件滑动到了底部
                  if((scrollY+height)==scrollViewMeasuredHeight){
-                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollY="+scrollY);
-                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 height="+height);
-                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollViewMeasuredHeight="+scrollViewMeasuredHeight);
+//                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollY="+scrollY);
+//                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 height="+height);
+//                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollViewMeasuredHeight="+scrollViewMeasuredHeight);
                 	 currentPositionTypeIsBottom = true;
                 	 openRefreshState();
                  }

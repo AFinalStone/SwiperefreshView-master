@@ -36,7 +36,7 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 	private void initView(Context context, AttributeSet attrs) {
 		setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW,
 				Color.CYAN, 0xFFFE5D14, Color.MAGENTA);
-		listView =  initListView(context, attrs);
+		listView =  initItemView(context, attrs);
 		addView(listView);
 		currentPositionTypeIsBottom = false;
 	}
@@ -44,16 +44,16 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 	private void initView(Context context) {
 		setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW,
 				Color.CYAN, 0xFFFE5D14, Color.MAGENTA);
-		listView = initListView(context);
+		listView = initItemView(context);
 		addView(listView);
 		currentPositionTypeIsBottom = false;
 	}
 	
 	/**把需要上拉，和下拉刷新的控件初始化并添加到SwipeRefreshLayout中**/
-	public abstract T initListView(Context context,AttributeSet attrs);
+	public abstract T initItemView(Context context,AttributeSet attrs);
 	
 	/**把需要上拉，和下拉刷新的控件初始化并添加到SwipeRefreshLayout中**/
-	public abstract T initListView(Context context);
+	public abstract T initItemView(Context context);
 
 	/**
 	 * 设置当前刷新状态监听者  支持上拉加载更多数据下拉刷新

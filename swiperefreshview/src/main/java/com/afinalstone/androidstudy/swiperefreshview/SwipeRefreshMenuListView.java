@@ -22,12 +22,12 @@ public  class SwipeRefreshMenuListView extends SwipeRefreshBaseListView<MenuList
 	}
 
 	@Override
-	public MenuListView initListView(Context context, AttributeSet attrs) {
+	public MenuListView initItemView(Context context, AttributeSet attrs) {
 		return new MenuListView(context,attrs);
 	}
 
 	@Override
-	public MenuListView initListView(Context context) {
+	public MenuListView initItemView(Context context) {
 		return new MenuListView(context);
 	}
 
