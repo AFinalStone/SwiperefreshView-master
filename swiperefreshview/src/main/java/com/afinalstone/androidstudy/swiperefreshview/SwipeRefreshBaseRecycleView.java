@@ -21,7 +21,9 @@ public abstract class SwipeRefreshBaseRecycleView<T extends RecyclerView> extend
 	private T itemView;
 	private OnSwipeRefreshViewListener onRefreshScrollViewListener;
 	/** 当前刷新事件是否是底部触发的 **/
-	private boolean currentPositionTypeIsBottom;
+	private boolean currentPositionTypeIsBottom = false;
+	/**是否开启底部刷新功能**/
+	private boolean IfOpenBottomRefresh = false;
 
 	public SwipeRefreshBaseRecycleView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -39,7 +41,6 @@ public abstract class SwipeRefreshBaseRecycleView<T extends RecyclerView> extend
 				Color.CYAN, 0xFFFE5D14, Color.MAGENTA);
 		itemView =  initItemView(context, attrs);
 		addView(itemView);
-		currentPositionTypeIsBottom = false;
 	}
 
 	private void initView(Context context) {
@@ -47,7 +48,6 @@ public abstract class SwipeRefreshBaseRecycleView<T extends RecyclerView> extend
 				Color.CYAN, 0xFFFE5D14, Color.MAGENTA);
 		itemView = initItemView(context);
 		addView(itemView);
-		currentPositionTypeIsBottom = false;
 	}
 	
 	/**把需要上拉，和下拉刷新的控件初始化并添加到SwipeRefreshLayout中**/
@@ -76,6 +76,11 @@ public abstract class SwipeRefreshBaseRecycleView<T extends RecyclerView> extend
 				onRefresh();
 			}
 		});
+	}
+
+	/** 开启刷新状态 **/
+	public void IfOpenBottomRefresh(boolean ifOpenBottomRefresh) {
+		IfOpenBottomRefresh = ifOpenBottomRefresh;
 	}
 
 	/** 关闭刷新状态 **/
@@ -108,10 +113,12 @@ public abstract class SwipeRefreshBaseRecycleView<T extends RecyclerView> extend
 
 		@Override
 		public final void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-			//加一是向下滚动
+			//加一是向下滚动,不能继续向下滚动就说明到达底部了
 			if (!recyclerView.canScrollVertically(1)) {
-				currentPositionTypeIsBottom = true;
-				openRefreshState();
+				if(IfOpenBottomRefresh){
+					currentPositionTypeIsBottom = true;
+					openRefreshState();
+				}
 			}
 		}
 	}
