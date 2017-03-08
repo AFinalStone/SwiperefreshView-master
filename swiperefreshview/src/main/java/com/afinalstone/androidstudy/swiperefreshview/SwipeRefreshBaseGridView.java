@@ -25,6 +25,8 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 	private OnSwipeRefreshViewListener onRefreshScrollViewListener;
 	/**当前刷新事件是否是底部触发的 **/
 	private boolean currentPositionTypeIsBottom;
+	/**是否开启底部刷新功能**/
+	private boolean IfOpenBottomRefresh = false;
 
 	public SwipeRefreshBaseGridView(Context context, AttributeSet attrs,
 			int defStyle) {
@@ -92,6 +94,11 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 			}
 		});
 	}
+
+	/** 是否开启底部刷新功能 **/
+	public void IfOpenBottomRefresh(boolean ifOpenBottomRefresh) {
+		IfOpenBottomRefresh = ifOpenBottomRefresh;
+	}
 	
 	/**关闭刷新状态**/
 	public void closeRefreshState(){
@@ -151,8 +158,11 @@ public abstract class SwipeRefreshBaseGridView<T extends GridView> extends Linea
 //                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollY="+scrollY);
 //                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 height="+height);
 //                	 Log.i("DownRefrushGridView", "scrollView滑动到了底部 scrollViewMeasuredHeight="+scrollViewMeasuredHeight);
-                	 currentPositionTypeIsBottom = true;
-                	 openRefreshState();
+					 if(IfOpenBottomRefresh){
+						 currentPositionTypeIsBottom = true;
+						 openRefreshState();
+					 }
+
                  }
                 break;
  

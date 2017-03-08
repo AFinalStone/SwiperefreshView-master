@@ -78,7 +78,7 @@ public abstract class SwipeRefreshBaseRecycleView<T extends RecyclerView> extend
 		});
 	}
 
-	/** 开启刷新状态 **/
+	/** 是否开启底部刷新功能 **/
 	public void IfOpenBottomRefresh(boolean ifOpenBottomRefresh) {
 		IfOpenBottomRefresh = ifOpenBottomRefresh;
 	}

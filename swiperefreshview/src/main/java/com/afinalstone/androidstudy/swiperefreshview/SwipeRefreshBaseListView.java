@@ -21,6 +21,8 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 	private OnSwipeRefreshViewListener onRefreshScrollViewListener;
 	/** 当前刷新事件是否是底部触发的 **/
 	private boolean currentPositionTypeIsBottom;
+	/**是否开启底部刷新功能**/
+	private boolean IfOpenBottomRefresh = false;
 
 	public SwipeRefreshBaseListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -77,6 +79,12 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 		});
 	}
 
+	/** 是否开启底部刷新功能 **/
+	public void IfOpenBottomRefresh(boolean ifOpenBottomRefresh) {
+		IfOpenBottomRefresh = ifOpenBottomRefresh;
+	}
+
+
 	/** 关闭刷新状态 **/
 	public void closeRefreshState() {
 		setRefreshing(false);
@@ -110,8 +118,10 @@ public abstract class SwipeRefreshBaseListView<T extends ListView> extends
 			case OnScrollListener.SCROLL_STATE_IDLE:
 				// 判断滚动到底部
 				if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
-               	 currentPositionTypeIsBottom = true;
-               	 openRefreshState();
+					if(IfOpenBottomRefresh){
+						currentPositionTypeIsBottom = true;
+						openRefreshState();
+					}
 				}
 				break;
 			}
